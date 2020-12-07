@@ -3,8 +3,11 @@ const cmd = require("node-cmd");
 
 const app = express();
 
+app.set("view engine", "jade");
+app.set("views", "views");
+
 app.get("/", function(request, response){
-	response.send("Hello world!");
+	response.render("index.jade", { "title": "my site" });
 });
 
 app.post("/updated", function(request, response){
